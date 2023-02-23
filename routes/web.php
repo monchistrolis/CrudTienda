@@ -17,18 +17,21 @@ use App\Http\Controllers\PedidosController;
 
 Route::get('/', [ProductosController::class, 'index'])->name('productos.index');
 
-Route::get('/instrumentos', function () {
-    return view('instrumentos');
-});
+Route::get('/instrumentos', function () {return view('instrumentos');});
 
 // Route::get('/pedidos', function () {
 //     return view('pedidos');
 // });
 
 //Pedidos
-Route::get('/pedidos',[PedidosController::class,'create'])->name('pedidos.create');
 
-Route::delete('/destroy/{id}', [PedidosController::class, 'destroy'])->name('pedidos.destroy');
+Route::get('/verpedido',[PedidosController::class,'index'])->name('pedido.index');
+
+Route::get('/pedidos',[PedidosController::class,'create'])->name('pedido.create');
+
+Route::post('/pedidos',[PedidosController::class,'store'])->name('pedido.store');
+
+Route::delete('/destroy/{id}', [PedidosController::class, 'destroy'])->name('pedido.destroy');
 
 
 //Productos
@@ -43,3 +46,11 @@ Route::get('/show/{id}', [ProductosController::class, 'show'])->name('productos.
 Route::post('/store', [ProductosController::class, 'store'])->name('productos.store');
 
 Route::delete('/destroy/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+
+
+//Documentos pdf
+Route::get('/pdf', [ProductosController::class, 'pdf'])->name('productos.pdf');
+
+Route::get('/pdfpedidos', [PedidosController::class, 'pdf'])->name('pedido.pdf');
+
+

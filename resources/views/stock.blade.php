@@ -28,8 +28,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Descripcion del Producto</label>
-                            <input type="text" name="descripcion" class="form-control"
+                            <textarea type="text" name="descripcion" class="form-control" rows="6"
                                 placeholder="ingresar una breve descripcion del producto">
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Categoria</label>
@@ -80,7 +81,7 @@
                                     <td>{{ $item->descripcion }}</td>
                                     <td>{{ $item->categoria }}</td>
                                     <td>{{ $item->precio }}</td>
-                                    <td><img src="{{ asset('images') . '/' . $item->imagen }}" alt=""
+                                    <td><img class="rounded-lg" src="{{ asset('images') . '/' . $item->imagen }}" alt=""
                                             width="100px"></td>
 
                                     <td><a
@@ -100,7 +101,13 @@
                         <div class="col-12 d-flex justify-content-center">
                             {{ $datos->links() }}
                         </div>
-
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center mt-5">
+                                <a href="{{route('productos.pdf')}}" class="btn btn-outline-dark btn-lg">Descargar en Pdf</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,23 +9,23 @@
     <div class="tab-content">
         <div class="tab-pane container active" id="home">
             <br>
-            <form  action="" method="POST" class="needs-validation" novalidate>
+            <form  action="{{route('pedido.store')}}" method="POST" >
                 @csrf
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltip01">Nombre</label>
+                        <label for="">Nombre</label>
                         <input type="text" class="form-control" name="nombre"
                          placeholder="Nombre de Encargado"
                          required>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Apellido</label>
+                        <label for="">Apellido</label>
                         <input type="text" class="form-control" name="apellido"
                          placeholder="Apellido de Encargado"
                          required>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Email</label>
+                        <label for="">Email</label>
                         <input type="text" class="form-control" name="email"
                          placeholder="Email de Encargado"
                          required>
@@ -48,11 +48,11 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="">productos</label>
+                        <label for="">categoria</label>
                         <select class="custom-select " name="categoria">
                             <option selected>Producto a Comprar</option>
                             <option value="GuitarrasElectricas">Guitarras Electricas</option>
-                            <option value="GuitarrasAcusticas">Guitarras Acusticas</option>
+                            <option value="GuitarrasElectricas">Guitarras Electricas</option>
                             <option value="Bajos">Bajos</option>
                             <option value="Baterias">Baterias</option>
                             <option value="Pianos">Pianos</option>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="col-md-4 mb-3" >
                         <label for="">Proveedor</label>
-                        <select class="custom-select " name="categoria">
+                        <select class="custom-select " name="proveedores">
                             <option selected>Producto a Comprar</option>
                             <option value="GuitarCenter">Guitar Center</option>
                             <option value="Musimundo">Musimundo</option>
@@ -94,10 +94,11 @@
                          placeholder="Fecha de Emision"
                          required>
                     </div>
-                    <div>
+                    <div class="col-md-4 mb-3">
                         <label for="">Firma</label>
-                        <input type="file" name="imagen" class="form-control"
-                         placeholder="Firma de Encargado"
+                        <input type="text" name="firma" class="form-control"
+
+                         placeholder="codigo de pedido"
                          required>
                     </div>
                 </div>
@@ -106,9 +107,11 @@
                         <label for="">Observaciones</label>
                         <textarea class="form-control" name="observaciones" rows="3"></textarea>
                     </div>
-                <div class=" col-12 d-flex justify-content-center mb-5 mt-5">
-                    <button type="submit" class="btn btn-outline-dark btn-lg" style="width: 300px">Enviar Pedido</button>
+                <div class=" col-12 d-flex justify-content-between mb-5 mt-5">
+                    <button class="btn btn-outline-dark btn-lg" style="width: 300px">Enviar Pedido</button>
+                    <a class="btn btn-outline-dark btn-lg" href="{{route('pedido.index')}}"> Ver Pedidos</a>
                 </div>
+
             </form>
         </div>
     </div>

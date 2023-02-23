@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Productos;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ProductosController extends Controller
 {
@@ -23,17 +25,33 @@ class ProductosController extends Controller
         return view('stock', compact('datos'));
     }
 
+    public function pdf()
+    {
+        //formulacio para agregar datos
+        $productos= Productos::orderby('nombre', 'desc')->paginate(10);
+        $pdf = Pdf::loadView('pdf', ['productos' =>$productos]);
+        return $pdf->stream();
+
+        //return view('pdf', compact('datos'));
+    }
+
 
     public function store(Request $request)
     {
         //guardar datos en la BD
-        $productos = new Productos();
-        $productos->nombre = $request->post('nombre');
-        $productos->descripcion = $request->post('descripcion');
-        $productos->categoria = $request->post('categoria');
-        $productos->precio = $request->post('precio');
-        $productos->imagen = $request->post('imagen');
-        $productos->save();
+        // $productos = new Productos();
+        // $productos->nombre = $request->post('nombre');
+        // $productos->descripcion = $request->post('descripcion');
+        // $productos->categoria = $request->post('categoria');
+        // $productos->precio = $request->post('precio');
+        // $productos->imagen = $request->post('imagen');
+        $productos= request()->except('_token');
+        if($request -> hasFile('imagen')){
+            $productos['imagen'] = $request->file('imagen')->store('uploads','public');
+        }
+        // $productos->save();
+        Productos::insert($productos);
+
         return redirect()->route('productos.create')->with("success","El producto se agregado correctamente!!");
 
     }
