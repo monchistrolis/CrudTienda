@@ -9,7 +9,7 @@
     <div class="tab-content">
         <div class="tab-pane container active" id="home">
             <br>
-            <form  action="{{route('pedido.store')}}" method="POST" >
+            <form  action="{{route('pedido.store')}}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
@@ -88,16 +88,15 @@
                             <option value="Music&Arts">Music & Arts</option>
                         </select>
                     </div>
-                    <div class="col-md-8 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="">Fecha de Emision</label>
                         <input type="date" class="form-control" name="fecha"
                          placeholder="Fecha de Emision"
                          required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label for="">Firma</label>
                         <input type="text" name="firma" class="form-control"
-
                          placeholder="codigo de pedido"
                          required>
                     </div>

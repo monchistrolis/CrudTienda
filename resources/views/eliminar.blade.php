@@ -28,7 +28,7 @@
                             <td>{{$productos->descripcion}}</td>
                             <td>{{$productos->categoria}}</td>
                             <td>{{$productos->precio}}</td>
-                            <td><img src="{{ asset('images') . '/' . $productos->imagen }}" alt="" width="100px"></td>
+                            <td><img src="{{ asset('storage') . '/' . $productos->imagen }}" alt="" width="100px"></td>
                         </tr>
                     </tbody>
                 </table>

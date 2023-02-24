@@ -21,7 +21,7 @@
 
 <body>
     <div class="container d-flex justify-content-center mt-4">
-        <h1 class="text-center">Pedidos Realizados</h1>
+        <h1 class="text-center">Pedidos Realizados </h1>
         <hr class="container">
     </div>
     <div class="table-responsive">

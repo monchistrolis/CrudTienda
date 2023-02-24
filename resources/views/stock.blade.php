@@ -1,7 +1,7 @@
 @extends('welcome')
 @section('base')
 <div class="container d-flex justify-content-center mt-4">
-    <h1>Segmento de Inventario</h1>
+    <h1>Inventario Music Express</h1>
 </div>
 <hr class="container">
     <div class="container mt-5">
@@ -19,7 +19,7 @@
             <div class="tab-content">
                 <div class="tab-pane container active" id="home">
                     <br>
-                    <form action="{{ route('productos.store') }}" method="POST">
+                    <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Nombre Producto</label>
@@ -81,7 +81,7 @@
                                     <td>{{ $item->descripcion }}</td>
                                     <td>{{ $item->categoria }}</td>
                                     <td>{{ $item->precio }}</td>
-                                    <td><img class="rounded-lg" src="{{ asset('images') . '/' . $item->imagen }}" alt=""
+                                    <td><img class="rounded-lg" src="{{ asset('storage') . '/' . $item->imagen }}" alt=""
                                             width="100px"></td>
 
                                     <td><a

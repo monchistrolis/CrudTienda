@@ -55,7 +55,7 @@
                     <tr>
                         <td>{{ $item->nombre }}</td>
                         <td class="text-center">{{ $item->categoria }}</td>
-                        {{-- <td class="text-center"><img src="{{ $item->foto }}" alt="" width="100px"></td> --}}
+                        {{-- <td class="text-center"><img src="{{ $item->imagen }}" alt="" width="100px"></td> --}}
                         <td class="text-center"></td>
 
                     </tr>
