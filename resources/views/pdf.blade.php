@@ -21,17 +21,17 @@
 
 <body>
     <div class="container mb-5">
-        <div class="d-flex justify-content-between">
-            <h1>
+        <div class="container d-flex justify-content-center mt-4">
+            <h1 class="text-center">
                     Productos en Inventario
             </h1>
-            <div class="d-flex justify-content-end">
+            <hr class="container">
         </div>
     </div>
 
     <div class="d-flex justify-content-center">
         <div class="col-ms-1">
-            <label for="">C 1 = Guitarras| C 2 = Bajos| C 3 = Baterias | C 4 = Pianos </label>
+            <label  for="">C 1 = Guitarras| C 2 = Bajos| C 3 = Baterias | C 4 = Pianos </label>
         </div>
         <div class="col-ms-6">
             <label for="">C 5 = Teclados| C 6 = Amplificadores | C 7 = Accesorios </label>
@@ -46,6 +46,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Categoria</th>
                     {{-- <th scope="col">Foto</th> --}}
+                    <th scope="col">Código</th>
                     <th scope="col">Estado</th>
 
                 </tr>
@@ -55,6 +56,7 @@
                     <tr>
                         <td>{{ $item->nombre }}</td>
                         <td class="text-center">{{ $item->categoria }}</td>
+                        <td class="text-center">{{ $item->codigo }}</td>
                         {{-- <td class="text-center"><img src="{{ $item->imagen }}" alt="" width="100px"></td> --}}
                         <td class="text-center"></td>
 

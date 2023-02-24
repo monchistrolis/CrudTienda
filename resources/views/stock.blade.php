@@ -1,9 +1,9 @@
 @extends('welcome')
 @section('base')
-<div class="container d-flex justify-content-center mt-4">
-    <h1>Inventario Music Express</h1>
-</div>
-<hr class="container">
+    <div class="container d-flex justify-content-center mt-4">
+        <h1>Inventario Music Express</h1>
+    </div>
+    <hr class="container">
     <div class="container mt-5">
         <div class="">
             <ul class="nav nav-pills">
@@ -45,9 +45,17 @@
                                 <option value="7">Accesorios</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="">Precio</label>
-                            <input type="text" name="precio" class="form-control" placeholder=" Preciod el producto ">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="">Precio</label>
+                                <input type="text" name="precio" class="form-control"
+                                    placeholder=" Precio del producto ">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="">Codigo</label>
+                                <input type="text" name="codigo" class="form-control"
+                                placeholder=" Codigo del producto ">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="">Imagen</label>
@@ -68,6 +76,7 @@
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Precio</th>
+                                <th scope="col">codigo</th>
                                 <th scope="col">Imagen</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Eliminar</th>
@@ -81,8 +90,9 @@
                                     <td>{{ $item->descripcion }}</td>
                                     <td>{{ $item->categoria }}</td>
                                     <td>{{ $item->precio }}</td>
-                                    <td><img class="rounded-lg" src="{{ asset('storage') . '/' . $item->imagen }}" alt=""
-                                            width="100px"></td>
+                                    <td>{{ $item->codigo }}</td>
+                                    <td><img class="rounded-lg" src="{{ asset('storage') . '/' . $item->imagen }}"
+                                            alt="" width="100px"></td>
 
                                     <td><a
                                             href="{{ route('productos.edit', $item->id) }}"class="btn btn-outline-dark">Editar</a>
@@ -105,7 +115,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center mt-5">
-                                <a href="{{route('productos.pdf')}}" class="btn btn-outline-dark btn-lg">Descargar en Pdf</a>
+                                <a href="{{ route('productos.pdf') }}" class="btn btn-outline-dark btn-lg">Descargar en
+                                    Pdf</a>
                             </div>
                         </div>
                     </div>

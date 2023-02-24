@@ -15,7 +15,9 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-
+            
+            $table->unsignedBigInteger('producto_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('cliente_id')->unsigned()->nullable();
 
             $table->string('nombre');
             $table->string('apellido');
@@ -29,7 +31,8 @@ class CreatePedidosTable extends Migration
             $table->string('firma');
             $table->string('observaciones');
 
-           
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
 
 
             $table->timestamps();
